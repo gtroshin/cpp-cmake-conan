@@ -132,7 +132,7 @@ jobs:
           name: binaries-macOS
           path: ${{ github.workspace }}
 
-      - name: Prepare Linux binaries
+      - name: Prepare macOS binaries
         run: |
           mv ${{ github.workspace }}/md5 ${{ github.workspace }}/md5_macOS      
 
