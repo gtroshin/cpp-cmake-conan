@@ -45,7 +45,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: build-folder
+          name: ${{ runner.os }}-build-folder
           path: "${{ github.workspace }}/build"
 
 
@@ -83,7 +83,7 @@ jobs:
 
       - uses: actions/download-artifact@v3
         with:
-          name: build-folder
+          name: ${{ runner.os }}-build-folder
           path: "${{ github.workspace }}/build"
 
       - name: Test
