@@ -18,4 +18,5 @@ fi
 cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
 cmake --build .
 
+# Test that MD5 hash calculator is actually working and binary is executable
 ./bin/md5
