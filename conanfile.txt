@@ -1,7 +1,5 @@
 [requires]
 poco/1.12.4
-catch2/2.13.9
 
 [generators]
 cmake
-cmake_find_package_multi
