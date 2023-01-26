@@ -1,4 +1,3 @@
-find_package(gtest REQUIRED)
 include(CTest)
 
 add_executable(tests tests.cpp)
