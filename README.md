@@ -21,16 +21,21 @@ Run the following command to launch the bash environment with pre-installed CMak
 
 
 ```sh
+# start up a docker container
 docker run -it --rm --name conangcc11 conanio/gcc11-ubuntu16.04 /bin/bash
 ```
 
 Run the following commands to build and execute test the project (macOS/Debug).
 
 ```sh
+# create a build folder
 mkdir build && cd build
+# install the dependencies using conan
 conan install -s build_type=Debug .. --build=missing
+# build
 cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
 cmake --build .
+# test
 ctest -C Debug
 ```
 
