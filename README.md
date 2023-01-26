@@ -40,4 +40,4 @@ The Continues Integration uses GitHub Actions workflow that includes `build` and
 
 ## Usefull links
 
-[GoogleTest Testing framework that os used to tun tests in this project](https://google.github.io/googletest/)
+[GoogleTest Testing framework that is used to tun tests in this project](https://google.github.io/googletest/)
