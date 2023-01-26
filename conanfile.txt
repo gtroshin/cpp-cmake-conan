@@ -1,6 +1,6 @@
 [requires]
 poco/1.12.4
-catch2/3.3.0
+catch2/2.13.9
 
 [generators]
 cmake
