@@ -27,7 +27,7 @@ Run the following command to launch the bash environment with pre-installed CMak
 docker run -it --rm --name conangcc11 conanio/gcc11-ubuntu16.04 /bin/bash
 ```
 
-Run the following commands to build and execute test the project (macOS/Debug).
+Run the following commands to build and execute test in the project (macOS/Debug).
 
 ```sh
 # create a build folder
