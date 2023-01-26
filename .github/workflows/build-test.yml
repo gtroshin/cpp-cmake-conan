@@ -102,6 +102,13 @@ jobs:
         run: |
             ctest -C Debug
 
+      - name: Prepare binaries for release
+        uses: actions/upload-artifact@v3
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          name: binaries-${{ runner.os }}
+          path: ${{ github.workspace }}/build/bin/md5
+
   release:
     needs: [build-matrix, test-matrix]
     if: startsWith(github.ref, 'refs/tags/')
@@ -109,27 +116,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get macOS binaries
-        uses: actions/cache@v2
+      - uses: actions/download-artifact@v3
         with:
-          path: ${{ github.workspace }}/build
-          key: build-folder-artifact-macOS-${{ github.run_id }}-${{ github.run_number }}
-
-      - name: Prepare macOS binaries
-        run: |
-          cp ${{ github.workspace }}/build/bin/md5* ${{ github.workspace }}/md5_macOS
-          rm -rf ${{ github.workspace }}/build
-
-      - name: Get Linux binaries
-        uses: actions/cache@v2
-        with:
-          path: ${{ github.workspace }}/build
-          key: build-folder-artifact-Linux-${{ github.run_id }}-${{ github.run_number }}
+          name: binaries-Linux
+          path: ${{ github.workspace }}
 
       - name: Prepare Linux binaries
         run: |
-          cp ${{ github.workspace }}/build/bin/md5* ${{ github.workspace }}/md5_Linux
-          rm -rf ${{ github.workspace }}/build
+          mv ${{ github.workspace }}/md5 ${{ github.workspace }}/md5_Linux
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: binaries-macOS
+          path: ${{ github.workspace }}
+
+      - name: Prepare Linux binaries
+        run: |
+          mv ${{ github.workspace }}/md5 ${{ github.workspace }}/md5_macOS      
 
       - name: Release
         uses: softprops/action-gh-release@v1
