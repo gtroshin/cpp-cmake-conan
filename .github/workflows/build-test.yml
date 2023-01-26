@@ -44,12 +44,12 @@ jobs:
         run: ./build.sh
 
       - name: 'Tar files'
-        run: tar -cvf ${{ runner.os }}-build-folder.tar ${{ github.workspace }}/build
+        run: tar -cvf ${{ runner.os }}-build-folder.tar.gz ${{ github.workspace }}/build
 
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ runner.os }}-build-folder
-          path: "${{ github.workspace }}/${{ runner.os }}-build-folder.tar"
+          path: "${{ github.workspace }}/${{ runner.os }}-build-folder.tar.gz"
 
 
   test-matrix:
@@ -87,10 +87,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: ${{ runner.os }}-build-folder
-          path: "${{ github.workspace }}/${{ runner.os }}-build-folder.tar"
+          path: "${{ github.workspace }}/${{ runner.os }}-build-folder.tar.gz"
 
       - name: Un-tar files
-        run: tar -xzf ${{ github.workspace }}/${{ runner.os }}-build-folder.tar -C ${{ github.workspace }}/build
+        run: tar -xzf ${{ github.workspace }}/${{ runner.os }}-build-folder.tar.gz -C ${{ github.workspace }}/build
 
       - name: Test
         working-directory: build
