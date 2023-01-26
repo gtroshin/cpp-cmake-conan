@@ -17,9 +17,27 @@ This project has been tested on Linux and macOS.
 
 This project can be built and run locally on Linux and macOS and you can decide to use a Docker environment.
 
-Run the following command to launch the bash environment with pre-installed CMake and Conan in a contaner. [More details are here.](https://docs.conan.io/en/latest/howtos/run_conan_in_docker.html#docker-conan)
+Run the following command to launch the bash environment with pre-installed CMake and Conan in a container. [More details are here.](https://docs.conan.io/en/latest/howtos/run_conan_in_docker.html#docker-conan)
 
 
 ```sh
 docker run -it --rm --name conangcc11 conanio/gcc11-ubuntu16.04 /bin/bash
 ```
+
+Run the following commands to build and execute test the project (macOS/Debug).
+
+```sh
+mkdir build && cd build
+conan install -s build_type=Debug .. --build=missing
+cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
+cmake --build .
+ctest -C Debug
+```
+
+## CI/CD
+
+The Continues Integration uses GitHub Actions workflow that includes `build` and `test` jobs run in an OS matrix to cover the latest available Linux and macOS distributives. As well as the `release` job that is only triggered when the new release is published and attaches binaries to the relevant release.
+
+## Usefull links
+
+[GoogleTest Testing framework that os used to tun tests in this project](https://google.github.io/googletest/)
