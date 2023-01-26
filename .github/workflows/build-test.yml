@@ -90,4 +90,4 @@ jobs:
         working-directory: build
         # https://cmake.org/cmake/help/latest/manual/ctest.1.html
         run: |
-            ctest -C Debug
+            ctest --verbose -C Debug
