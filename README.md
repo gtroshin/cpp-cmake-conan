@@ -2,6 +2,8 @@
 ![CMake 3.25.2](https://img.shields.io/badge/CMake-3.25.2-blue.svg)
 [![Build and Test](https://github.com/gtroshin/cpp-cmake-conan/actions/workflows/build-test.yml/badge.svg)](https://github.com/gtroshin/cpp-cmake-conan/actions/workflows/build-test.yml)
 
+The application being built is an MD5 hash calculator using the Poco Libraries. [Inspired by this project.](https://github.com/conan-io/examples/tree/master/libraries/poco/md5)
+
 ## Requirements
 
 The following tools are in the foundation to be able to develop this project. 
