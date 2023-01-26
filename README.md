@@ -41,7 +41,7 @@ ctest -C Debug
 
 ## CI/CD
 
-The Continues Integration uses GitHub Actions workflow that includes `build` and `test` jobs run in an OS matrix to cover the latest available Linux and macOS distributives. As well as the `release` job that is only triggered when the new release is published and attaches binaries to the relevant release.
+The Continues Integration uses GitHub Actions workflow that includes `build` and `test` jobs run in an OS matrix to cover the latest available Linux and macOS distributives. As well as the `release` job that is only triggered when the new release is published and attaches binaries to the relevant release. Additionally, the workflow can be triggered via `workflow_dispatch` event, manually.
 
 ## Usefull links
 
