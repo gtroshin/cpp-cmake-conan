@@ -43,6 +43,17 @@ ctest -C Debug
 
 The Continues Integration uses GitHub Actions workflow that includes `build` and `test` jobs run in an OS matrix to cover the latest available Linux and macOS distributives. As well as the `release` job that is only triggered when the new release is published and attaches binaries to the relevant release. Additionally, the workflow can be triggered via `workflow_dispatch` event, manually.
 
+## Release process
+
+The release can be created via the GitHub UI where an engineer can create a tag at the same time. Or as an alternative, an engineer can create and push the tag manually, which should trigger the same workflow with a `release` job. Please see the steps for a manual tag creation via git.
+
+```sh
+# create a tag locally (v1.0.0)
+git tag <tagname>
+# push a tag to remote
+git push origin <tag>
+```
+
 ## Usefull links
 
 [GoogleTest Testing framework that is used to tun tests in this project](https://google.github.io/googletest/)
