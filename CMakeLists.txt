@@ -20,3 +20,12 @@ conan_basic_setup()
 
 add_executable(md5 md5.cpp)
 target_link_libraries(md5 ${CONAN_LIBS})
+
+# Adding the tests:
+option(ENABLE_TESTING "Enable the tests" ON)
+if(ENABLE_TESTING)
+  enable_testing()
+  message("Building Tests. Be sure to check out test/constexpr_tests for constexpr
+testing")
+  add_subdirectory(test)
+endif()

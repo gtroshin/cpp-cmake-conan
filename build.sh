@@ -11,11 +11,11 @@ if [ "$RUNNER_OS" == "Linux" ]; then
 elif [ "$RUNNER_OS" == "macOS" ]; then
     conan install .. --build=missing
 else
-    echo "$RUNNER_OS is not supported by build script"
+    echo "The $RUNNER_OS is not supported by build script"
     exit 1
 fi
 
-cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release
+cmake .. -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug
 cmake --build .
 
 ./bin/md5
