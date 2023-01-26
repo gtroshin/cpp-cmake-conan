@@ -45,14 +45,8 @@ The Continues Integration uses GitHub Actions workflow that includes `build` and
 
 ## Release process
 
-The release can be created via the GitHub UI where an engineer can create a tag at the same time. Or as an alternative, an engineer can create and push the tag manually, which should trigger the same workflow with a `release` job. Please see the steps for a manual tag creation via git.
+The release can be created via the GitHub UI where an engineer can create a tag at the same time. Local tag creation and pushing it to remote will not trigger a workflow. 
 
-```sh
-# create a tag locally (v1.0.0)
-git tag <tagname>
-# push a tag to remote
-git push origin <tag>
-```
 
 ## Usefull links
 
